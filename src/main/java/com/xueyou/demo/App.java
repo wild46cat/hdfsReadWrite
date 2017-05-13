@@ -22,7 +22,5 @@ public class App {
         FSDataOutputStream fsDataOutputStream = null;
         FileSystem fileSystem = null;
         FileInputStream fileInputStream = null;
-
-        System.out.println("test branch");
     }
 }
