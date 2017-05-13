@@ -22,10 +22,5 @@ public class App {
         FSDataOutputStream fsDataOutputStream = null;
         FileSystem fileSystem = null;
         FileInputStream fileInputStream = null;
-
-//        HDFSUtils.mkdirs(uri, "/user/xytest/wes", new FsPermission(FsAction.ALL, FsAction.ALL, FsAction.ALL));
-        HDFSUtils.mkdirs(uri, "/user/xytest/cc");
-
-        System.out.println("test branch");
     }
 }
