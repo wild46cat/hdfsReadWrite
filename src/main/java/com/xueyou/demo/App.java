@@ -32,12 +32,5 @@ public class App {
 //        HDFSUtils.mkdirs(uri, "/user/xytest/wes", new FsPermission(FsAction.ALL, FsAction.ALL, FsAction.ALL));
         HDFSUtils.mkdirs(uri, "/user/xytest/cc");
 
-//        try {
-//            fileSystem = FileSystem.get(URI.create(uri), configuration);
-//            fileSystem.mkdirs(new Path("/user/xytest/cc"));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } finally {
-//        }
     }
 }
