@@ -4,6 +4,7 @@ package com.xueyou.demo;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.FileSystem;
+
 import java.io.FileInputStream;
 
 /**
@@ -16,11 +17,13 @@ public class App {
         System.out.println(uri);
 //        HDFSUtils.ReadFile(uri, System.out);
 //        HDFSUtils.mkdirs(uri, "/user/xytest/wes", new FsPermission(FsAction.ALL, FsAction.ALL, FsAction.ALL));
-        HDFSUtils.mkdirs(uri, "/user/xytest/cc");
+//        HDFSUtils.mkdirs(uri, "/user/xytest/cc");
+//        FileStatus fileStatus = HDFSUtils.getFileStatus(uri);
         Configuration configuration = new Configuration();
 
         FSDataOutputStream fsDataOutputStream = null;
         FileSystem fileSystem = null;
         FileInputStream fileInputStream = null;
+
     }
 }

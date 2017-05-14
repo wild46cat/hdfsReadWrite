@@ -1,9 +1,8 @@
 package com.xueyou.demo;
 
+import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FSDataOutputStream;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.fs.*;
 import org.apache.hadoop.fs.permission.FsPermission;
 import org.apache.hadoop.io.IOUtils;
 
@@ -76,7 +75,9 @@ public class HDFSUtils {
 
     /**
      * 创建文件夹
-     * @param uri hdfs://192.168.0.84:8020/
+     *
+     * @param uri          hdfs://192.168.0.84:8020/
+     *                     需要注意的是，这里的默认的FSPerssion默认值是755,即使设置的权限是ALL。
      * @param path
      * @param fsPermission
      * @return
@@ -95,7 +96,8 @@ public class HDFSUtils {
     }
 
     /**
-     *创建文件夹
+     * 创建文件夹，使用默认权限755
+     *
      * @param uri  hdfs://192.168.0.84:8020/
      * @param path
      * @return
@@ -110,6 +112,24 @@ public class HDFSUtils {
             e.printStackTrace();
         } finally {
             return result;
+        }
+    }
+
+    /**
+     * 返回uri的文件状态
+     * @param uri
+     * @return
+     */
+    public static FileStatus getFileStatus(String uri) {
+        FileStatus fileStatus = null;
+        FileSystem fileSystem = null;
+        try {
+            fileSystem = FileSystem.get(URI.create(uri), configuration);
+            fileStatus = fileSystem.getFileStatus(new Path(uri));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            return fileStatus;
         }
     }
 }
